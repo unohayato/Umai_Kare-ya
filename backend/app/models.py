@@ -10,7 +10,7 @@ class Food(models.Model):
             (3, "うまっ!"),
             (4, "うまーい!"),
             (5, "うまー!"),
-        )
+  )
   name = models.CharField(verbose_name="メニュー名", max_length=255)
   price = models.IntegerField(verbose_name="金額")
   evaluation = models.IntegerField(verbose_name="評価", choices=EVALUATION)
