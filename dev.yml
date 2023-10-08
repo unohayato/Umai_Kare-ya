@@ -5,10 +5,12 @@ services:
     command: bash -c "python manage.py migrate && python manage.py collectstatic --no-input --clear && python manage.py runserver  0.0.0.0:8000"
     expose:
       - "8000"
+    depends_on:
+      - db 
     volumes:
       - ./backend:/code
       - static:/code/static
       - media:/code/media
     environment:
       - SUPERUSER_NAME=admin
-      - SUPERUSER_PASSWORD=admin123
+      - SUPERUSER_PASSWORD=Test1234@
