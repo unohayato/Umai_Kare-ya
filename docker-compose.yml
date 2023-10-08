@@ -1,0 +1,28 @@
+version: "3"
+services:
+  db:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=mysql
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_ROOT_PASSWORD=root_mysql
+    volumes:
+      - mydata:/var/lib/mysql
+
+  nginx:
+    image: nginx:1.13
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx_conf:/etc/nginx/conf.d
+      - static:/code/static
+      - media:/code/media
+    depends_on:
+      - backend
+      # - frontend
+
+volumes:
+  static:
+  media:
+  mydata:
