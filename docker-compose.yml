@@ -16,8 +16,9 @@ services:
       - "80:80"
     volumes:
       - ./nginx_conf:/etc/nginx/conf.d
-      - static:/code/static
+      - static:/code/static_root
       - media:/code/media
+      - ./frontend/build:/code/build
     depends_on:
       - backend
       - frontend
