@@ -11,6 +11,15 @@ services:
       - ./backend:/code
       - static:/code/static
       - media:/code/media
-    environment:
-      - SUPERUSER_NAME=admin
-      - SUPERUSER_PASSWORD=Test1234@
+    # environment:
+    #   - SUPERUSER_NAME=admin
+    #   - SUPERUSER_PASSWORD=Test1234@
+  frontend:
+    build: ./frontend
+    expose:
+      - "3000"
+    command: "npm start"
+    volumes:
+      - ./frontend:/code
+    depends_on:
+      - backend

@@ -20,7 +20,7 @@ services:
       - media:/code/media
     depends_on:
       - backend
-      # - frontend
+      - frontend
 
 volumes:
   static:
