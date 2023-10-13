@@ -9,7 +9,7 @@ services:
       - db 
     volumes:
       - ./backend:/code
-      - static:/code/static
+      - static:/code/static_root
       - media:/code/media
     # environment:
     #   - SUPERUSER_NAME=admin
@@ -18,8 +18,9 @@ services:
     build: ./frontend
     expose:
       - "3000"
-    command: "npm start"
+    command: "npm run start"
     volumes:
       - ./frontend:/code
+      - ./frontend/build:/code/build 
     depends_on:
       - backend
