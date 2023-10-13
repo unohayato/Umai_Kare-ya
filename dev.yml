@@ -18,7 +18,7 @@ services:
     build: ./frontend
     expose:
       - "3000"
-    command: "npm start"
+    command: "npm run start"
     volumes:
       - ./frontend:/code
       - ./frontend/build:/code/build 
