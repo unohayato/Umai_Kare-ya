@@ -85,7 +85,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static_root/'
 STATIC_ROOT = BASE_DIR / 'static_root'
 
 MEDIA_URL = '/media/'
