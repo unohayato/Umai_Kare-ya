@@ -2,11 +2,10 @@ version: "3"
 services:
   backend:
     build: ./backend
+    container_name: backend
     command: bash -c "python manage.py migrate && python manage.py collectstatic --no-input --clear && python manage.py runserver  0.0.0.0:8000"
     expose:
       - "8000"
-    depends_on:
-      - db 
     volumes:
       - ./backend:/code
       - static:/code/static_root
@@ -16,11 +15,9 @@ services:
     #   - SUPERUSER_PASSWORD=Test1234@
   frontend:
     build: ./frontend
+    container_name: frontend
     expose:
       - "3000"
-    command: "npm run start"
     volumes:
       - ./frontend:/code
-      - ./frontend/build:/code/build 
-    depends_on:
-      - backend
+    command: "npm run start -- --host 0.0.0.0"
