@@ -19,8 +19,5 @@ services:
     expose:
       - "3000"
     command: "npm run start"
-    volumes:
-      - ./frontend:/code
-      - ./frontend/build:/code/build 
     depends_on:
       - backend
