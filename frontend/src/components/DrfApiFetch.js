@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import '../Font.css';
 
 const DrfApiFetch = () => {
   const [foods, setFoods] = useState([]);
@@ -19,7 +20,9 @@ const DrfApiFetch = () => {
 
   return (
     <div>
-      <h1>DRF API</h1>
+      <div className="title">
+        <h1>食べたもの一覧</h1>
+      </div>
       <Box
         sx={{
           display: 'flex',

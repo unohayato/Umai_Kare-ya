@@ -1,0 +1,12 @@
+.title {
+  font-family: 'BIZ UDPMincho', serif;
+  font-family: 'BIZ UDPMincho', serif;
+  text-align: center; /* テキストを中央揃えにします */
+  font-size: 2.0em; /* タイトルのサイズを大きくします。必要に応じて値を調整してください */
+  margin-top: 20px; /* 上部の余白を追加します。必要に応じて値を調整してください */
+  /* 必要に応じて他のスタイルルールを追加 */
+}
+
+.text {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
