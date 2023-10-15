@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
 
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import '../Font.css';
+
 const DrfApiFetch = () => {
   const [foods, setFoods] = useState([]);
 
@@ -16,13 +20,28 @@ const DrfApiFetch = () => {
 
   return (
     <div>
-      <h1>DRF API</h1>
-      <ul>
-        {
-          foods.map((food) => 
-          <li key={food.id}>商品名:{food.name} 価格:{food.price} 評価:{food.evaluation}</li>)
-        }
-      </ul>
+      <div className="title">
+        <h1>食べたもの一覧</h1>
+      </div>
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          '& > :not(style)': {
+            m: 1,
+            width: 128, // またはコンテンツに合わせてサイズを調整
+            height: 128, // またはコンテンツに合わせてサイズを調整
+          },
+        }}
+      >
+        {foods.map((food) => (
+          <Paper key={food.id} elevation={3} sx={{ padding: 2 }}> {/* paddingはコンテンツに合わせて調整 */}
+            <div>商品名: {food.name}</div>
+            <div>価格: {food.price}</div>
+            <div>評価: {food.evaluation}</div>
+          </Paper>
+        ))}
+      </Box>
     </div>
   )
 }
