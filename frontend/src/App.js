@@ -1,9 +1,10 @@
 import './App.css';
+import ButtonAppBar from './components/Header';
 
 function App() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <ButtonAppBar />
     </div>
   );
 }
