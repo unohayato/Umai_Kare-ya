@@ -2,3 +2,6 @@ Django
 djangorestframework
 django-cors-headers
 mysqlclient
+dj-database-url
+python-dotenv
+django-environ
