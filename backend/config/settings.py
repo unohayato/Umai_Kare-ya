@@ -1,8 +1,13 @@
+import os
 from pathlib import Path
+import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-(++kmpm_e=lxh+p_g-zq#b)gua*m#q4#i+e5s=9it64uyw19wb"
+env = environ.Env()
+env.read_env(os.path.join(BASE_DIR, '.env'))
+
+SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = True
 
@@ -63,14 +68,8 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysql',  
-        'USER': 'mysql',
-        'PASSWORD': 'mysql',
-        'HOST': 'db',          
-        'PORT': '3306',
-    }
+    'default': env.db(),
+
 }
 
 AUTH_PASSWORD_VALIDATORS = [
