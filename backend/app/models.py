@@ -26,6 +26,13 @@ class SoftDeletionModel(models.Model):
     return super().delete()
   
 
+class CurryShop(SoftDeletionModel):
+    name = models.CharField(verbose_name="店名", max_length=255)
+    address = models.CharField(verbose_name="所在地", max_length=255)
+
+    def __str__(self):
+        return self.name
+
 class Food(SoftDeletionModel):
     EVALUATION = (
         (0, "うまい!"),
@@ -38,14 +45,8 @@ class Food(SoftDeletionModel):
     name = models.CharField(verbose_name="メニュー名", max_length=255)
     price = models.IntegerField(verbose_name="金額")
     evaluation = models.IntegerField(verbose_name="評価", choices=EVALUATION)
-    curry_shop = models.ForeignKey('CurryShop', verbose_name="カレーショップ", on_delete=models.CASCADE)
+    curry_shop = models.ForeignKey(CurryShop, verbose_name="店名", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
-class CurryShop(SoftDeletionModel):
-    name = models.CharField(verbose_name="店名", max_length=255)
-    address = models.CharField(verbose_name="場所", max_length=255)
-
-    def __str__(self):
-        return self.name
