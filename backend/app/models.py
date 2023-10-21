@@ -8,7 +8,7 @@ class SoftDeletionManager(models.Manager):
     return super().get_queryset().filter(deleted_at__isnull=True)
 
 class SoftDeletionModel(models.Model):
-  creaeted_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)
+  created_at = models.DateTimeField(verbose_name="作成日時", auto_now_add=True)
   updated_at = models.DateTimeField(verbose_name="更新日時", auto_now=True)
   deleted_at = models.DateTimeField(verbose_name="削除日時", blank=True, null=True)
   
