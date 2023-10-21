@@ -28,7 +28,7 @@ class SoftDeletionModel(models.Model):
 
 class CurryShop(SoftDeletionModel):
     name = models.CharField(verbose_name="店名", max_length=255)
-    address = models.CharField(verbose_name="所在地", max_length=255)
+    address = models.CharField(verbose_name="場所", max_length=255)
 
     def __str__(self):
         return self.name
