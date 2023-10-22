@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { useNavigate } from 'react-router-dom'; // 必要なimportを追加
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import ButtonAppBar from '../components/Header';

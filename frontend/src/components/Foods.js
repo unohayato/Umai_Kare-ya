@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import ButtonAppBar from '../components/Header';
@@ -7,8 +8,9 @@ import Paper from '@mui/material/Paper';
 import '../Font.css';
 
 
-const Foods = ({ shopId }) => {
+const Foods = () => {
   const [foods, setFoods] = useState([]);
+  const { shopId } = useParams();
 
   useEffect(() => {
     axios.get(`http://localhost/api/foods/?curry_shop=${shopId}`)
@@ -43,7 +45,6 @@ const Foods = ({ shopId }) => {
             key={food.id} 
             elevation={3} 
             sx={{ padding: 2 }} // paddingはコンテンツに合わせて調整
-            onClick={() => handleShopClick(food.id)} // ここでクリックイベントを追加
             style={{ cursor: 'pointer' }} // マウスカーソルをポインターに変更
           >
             <div>メニュー名: {food.name}</div>
