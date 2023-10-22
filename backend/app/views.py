@@ -6,8 +6,10 @@ from .serializers import CurryShopSerializer, FoodSerializer
 # Create your views here.
 
 class FoodViewSet(viewsets.ModelViewSet):
-  queryset = Food.objects.all()
   serializer_class = FoodSerializer
+  def get_queryset(self):
+        queryset = Food.objects.select_related('curry_shop').all()
+        return queryset
 
 class CurryShopViewSet(viewsets.ModelViewSet):
   queryset = CurryShop.objects.all()
