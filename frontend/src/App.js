@@ -1,15 +1,16 @@
 import './App.css';
-import ButtonAppBar from './components/Header';
-// import DrfApiFetch from './components/DrfApiFetch';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CurryShop from './components/CurryShop';
+import Foods from './components/Foods';
 
 function App() {
   return (
-    <div>
-      <ButtonAppBar />
-      {/* <DrfApiFetch /> */}
-      <CurryShop />
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<CurryShop />} />
+          <Route path="/:shopId/foods" element={<Foods />} />
+        </Routes>
+      </BrowserRouter>
   );
 }
 
