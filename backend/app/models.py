@@ -46,6 +46,12 @@ class Food(SoftDeletionModel):
     price = models.IntegerField(verbose_name="金額")
     evaluation = models.IntegerField(verbose_name="評価", choices=EVALUATION)
     curry_shop = models.ForeignKey(CurryShop, verbose_name="店名", on_delete=models.CASCADE)
+    
+    def get_evaluation_str(self):
+      return self.get_evaluation_display()
+
+    def get_curry_shop_name(self):
+        return str(self.curry_shop)
 
     def __str__(self):
         return self.name
